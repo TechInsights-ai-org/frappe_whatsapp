@@ -10,8 +10,9 @@
  ],
  "fields": [
   {
+   "description": "use doc.name if it is in doc else you can get it from other doc using code ",
    "fieldname": "field_name",
-   "fieldtype": "Data",
+   "fieldtype": "Code",
    "in_list_view": 1,
    "label": "Field name"
   }
@@ -19,7 +20,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-10-29 15:33:48.324678",
+ "modified": "2024-12-20 16:22:22.992265",
  "modified_by": "Administrator",
  "module": "Frappe Whatsapp",
  "name": "WhatsApp Message Fields",

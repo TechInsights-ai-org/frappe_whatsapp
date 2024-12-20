@@ -102,9 +102,9 @@
   },
   {
    "depends_on": "eval:['DocType Event'].includes(doc.notification_type)",
-   "description": "Mobile number field",
+   "description": "Mobile number field code use doc.mobile_number if it is in doc else you can get it from other doc only single number or list of number is supported",
    "fieldname": "field_name",
-   "fieldtype": "Data",
+   "fieldtype": "Code",
    "label": "Field Name",
    "reqd": 1
   },
@@ -196,7 +196,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-24 13:53:36.666204",
+ "modified": "2024-12-20 16:06:35.853381",
  "modified_by": "Administrator",
  "module": "Frappe Whatsapp",
  "name": "WhatsApp Notification",
