@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils.safe_exec import get_safe_globals, safe_exec
 from frappe.integrations.utils import make_post_request
-from frappe.desk.form.utils import get_pdf_link
+# from frappe.desk.form.utils import get_pdf_link
 from frappe.utils import add_to_date, nowdate, datetime
 
 
@@ -323,4 +323,6 @@ def trigger_notifications(method="daily"):
         for d in doc_list:
             alert = frappe.get_doc("WhatsApp Notification", d.name)
             alert.get_documents_for_today()
-           
+
+def get_pdf_link(doctype, docname, print_format="Standard", no_letterhead=0):
+	return f"/printview?doctype={doctype}&name={docname}&format={print_format}&no_letterhead={no_letterhead}&trigger_download=1"
