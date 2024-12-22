@@ -49,7 +49,7 @@ class WhatsAppNotification(Document):
                 self.notify(data)
         # return _globals.frappe.flags
 
-    def create_data_and_notify(self, phone_number, doc_data):
+    def create_data_and_notify(self, phone_number, doc_data, doc):
         template = frappe.db.get_value(
             "WhatsApp Templates", self.template,
             fieldname='*'
@@ -176,9 +176,9 @@ class WhatsAppNotification(Document):
         )
         if isinstance(phone_number, list):
             for number in phone_number:
-                self.create_data_and_notify(number, doc_data)
+                self.create_data_and_notify(number, doc_data, doc)
         elif isinstance(phone_number, int) or isinstance(phone_number, str):
-            self.create_data_and_notify(phone_number, doc_data)
+            self.create_data_and_notify(phone_number, doc_data, doc)
         else:
             frappe.msgprint(
                 f"Failed to trigger whatsapp message: Please provide a valid phone number",
