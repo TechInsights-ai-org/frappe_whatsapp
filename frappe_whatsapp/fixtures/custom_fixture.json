@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Contact Phone-custom_is_whatsapp_number",
+    "dt": "Contact Phone",
+    "label": "Is WhatsApp Number",
+    "fieldname": "custom_is_whatsapp_number",
+    "insert_after": "is_primary_mobile_no",
+    "fieldtype": "Check",
+    "doctype": "Custom Field"
+  },
+  {
+    "name": "Wp Contact Auto Creation from contact",
+    "script_type": "DocType Event",
+    "reference_doctype": "Contact",
+    "doctype_event": "After Insert",
+    "module": "Frappe Whatsapp",
+    "disabled": 0,
+    "script": "wp_contact_list = []\nfor contact in doc.phone_nos:\n    if contact.custom_is_whatsapp_number == 1:\n        wp_contact_list.append({\n            \"phone_number\": contact.phone\n        })\n\nwp_contact = frappe.get_doc({\n    \"doctype\": \"WhatsApp Contact\",\n    \"name1\": doc.first_name,\n    \"first_name\": doc.first_name,\n    \"last_name\": doc.last_name,\n    \"phone_number\": wp_contact_list\n})\nwp_contact.save()",
+    "enable_rate_limit": 0,
+    "rate_limit_count": 5,
+    "rate_limit_seconds": 86400,
+    "doctype": "Server Script"
+  }
+]
