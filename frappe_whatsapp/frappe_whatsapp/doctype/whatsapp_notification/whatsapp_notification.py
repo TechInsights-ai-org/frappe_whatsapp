@@ -325,4 +325,4 @@ def trigger_notifications(method="daily"):
             alert.get_documents_for_today()
 
 def get_pdf_link(doctype, docname, print_format="Standard", no_letterhead=0):
-	return f"/printview?doctype={doctype}&name={docname}&format={print_format}&no_letterhead={no_letterhead}&trigger_download=1"
+	return f"/api/method/frappe_whatsapp.utils.pdf_generator.generate_pdf?doctype={doctype}&docname={docname}&print_format={print_format}"
